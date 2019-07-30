@@ -17,8 +17,11 @@ const defaultOptions: Options = {
   withWeekends: true,
 }
 
-const isVacancy = (date: Date, options: Options): Boolean => {
-  const { withWeekends, withVacancy, withHolidays } = options
+const isVacancy = (date: Date, proposedOptions?: Options): Boolean => {
+  const { withWeekends, withVacancy, withHolidays } = {
+    ...defaultOptions,
+    ...proposedOptions,
+  }
 
   if (withWeekends && (date.getDay() === 6 || date.getDay() === 0)) {
     return true
@@ -43,13 +46,9 @@ const minusDay = (date: Date, days: number = 1) =>
 export const getLastWorkDayOfMonth = (
   year: number,
   month: number,
-  proposedOptions?: Options
+  options?: Options
 ) => {
   let date = new Date(Date.UTC(year, month, 0))
-  const options = {
-    ...defaultOptions,
-    ...proposedOptions,
-  }
 
   while (isVacancy(date, options)) {
     date = minusDay(date)
@@ -58,17 +57,12 @@ export const getLastWorkDayOfMonth = (
   return date.toISOString().split('T')[0]
 }
 
-export const isVacation = (date: Date, proposedOptions?: Options): Boolean => {
-  const options = {
-    ...defaultOptions,
-    ...proposedOptions,
-  }
-
+export const isVacation = (date: Date, options?: Options): Boolean => {
   if (isVacancy(date, options)) {
     return true
   }
 
-  if (options.withLastWorkDayOfMonth) {
+  if (options && options.withLastWorkDayOfMonth) {
     const last = getLastWorkDayOfMonth(
       date.getFullYear(),
       date.getMonth() + 1,
