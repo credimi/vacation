@@ -46,7 +46,7 @@ const minusDay = (date: Date, days: number = 1) =>
 export const getLastWorkDayOfMonth = (
   year: number,
   month: number,
-  options?: Options
+  options?: Omit<Options, 'withWeekends'>
 ) => {
   let date = new Date(Date.UTC(year, month, 0))
 
