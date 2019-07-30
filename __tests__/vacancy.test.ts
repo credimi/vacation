@@ -1,4 +1,4 @@
-import { isVacancy } from "../src/vacancy";
+import { isVacancy, getLastWorkDayOfMonth } from "../src/vacancy";
 
 test("Christmas is CHRISTMAS", () => {
   const options = {
@@ -40,10 +40,12 @@ test("It's vacancy", () => {
 
 test("Last working day", () => {
   const options = {
-    withWeekends: false,
-    withVacancy: true,
-    withHolidays: false
+    withLastWorkDayOfMonth: true
   };
   expect(isVacancy(new Date("2019-07-31"), options)).toBe(true);
-  expect(isVacancy(new Date("2023-07-30"), options)).toBe(false);
+  expect(isVacancy(new Date("2019-07-30"), options)).toBe(false);
+});
+
+test("Get last working date", () => {
+  expect(getLastWorkDayOfMonth(new Date("2019-07-15"))).toBe("2019-07-31");
 });
