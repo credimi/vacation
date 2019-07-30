@@ -17,28 +17,8 @@ const defaultOptions: Options = {
   withWeekends: true,
 }
 
-const minusDay = (date: Date, days: number = 1) =>
-  new Date(new Date(date).setDate(date.getDate() - days))
-
-export const getLastWorkDayOfMonth = (
-  year: number,
-  month: number,
-  options?: Options
-) => {
-  let date = new Date(Date.UTC(year, month, 0))
-
-  while (isVacation(date, { ...options, withLastWorkDayOfMonth: false })) {
-    date = minusDay(date)
-  }
-
-  return date.toISOString().split('T')[0]
-}
-
-export const isVacation = (date: Date, proposedOptions?: Options): Boolean => {
-  const { withWeekends, withVacancy, withHolidays, withLastWorkDayOfMonth } = {
-    ...defaultOptions,
-    ...proposedOptions,
-  }
+const isVacancy = (date: Date, options: Options): Boolean => {
+  const { withWeekends, withVacancy, withHolidays } = options
 
   if (withWeekends && (date.getDay() === 6 || date.getDay() === 0)) {
     return true
@@ -54,8 +34,46 @@ export const isVacation = (date: Date, proposedOptions?: Options): Boolean => {
     return true
   }
 
-  if (withLastWorkDayOfMonth) {
-    const last = getLastWorkDayOfMonth(date.getFullYear(), date.getMonth() + 1)
+  return false
+}
+
+const minusDay = (date: Date, days: number = 1) =>
+  new Date(new Date(date).setDate(date.getDate() - days))
+
+export const getLastWorkDayOfMonth = (
+  year: number,
+  month: number,
+  proposedOptions?: Options
+) => {
+  let date = new Date(Date.UTC(year, month, 0))
+  const options = {
+    ...defaultOptions,
+    ...proposedOptions,
+  }
+
+  while (isVacancy(date, options)) {
+    date = minusDay(date)
+  }
+
+  return date.toISOString().split('T')[0]
+}
+
+export const isVacation = (date: Date, proposedOptions?: Options): Boolean => {
+  const options = {
+    ...defaultOptions,
+    ...proposedOptions,
+  }
+
+  if (isVacancy(date, options)) {
+    return true
+  }
+
+  if (options.withLastWorkDayOfMonth) {
+    const last = getLastWorkDayOfMonth(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      options
+    )
     if (date.toISOString().split('T')[0] === last) {
       return true
     }
