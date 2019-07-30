@@ -2,15 +2,15 @@ const Holidays = require("date-holidays");
 const holidays = new Holidays("IT");
 const fsPromises = require('fs.promises')
 
-let vacancies = []
+let holyarray = []
 for (let year = 2019; year < 2030; year++) {
-    vacancies = [...vacancies, ...holidays.getHolidays(year).map(({start}) => 
-        start.toISOString().split('T')[0])]
+    holyarray = [...holyarray, ...holidays.getHolidays(year).map(({end}) => 
+        end.toISOString().split('T')[0])]
 }
 
-fsPromises.writeFile('./data/vacancy.ts', `
-export const vacancy: string[] = [${vacancies.map(vacancy => `
-    "${vacancy}"`)}
+fsPromises.writeFile('./data/holidays.ts', `
+export const holidays: string[] = [${holyarray.map(holiday => `
+    "${holiday}"`)}
 ]
 `)
 
