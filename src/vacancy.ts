@@ -20,34 +20,18 @@ const defaultOptions: Options = {
 const minusDay = (date: Date, days: number = 1) =>
   new Date(new Date(date).setDate(date.getDate() - days));
 
-type GetLastWorkDayOfMonthDOpt = {
-  recursive?: Boolean;
-  outputFormat?: "string" | "date";
-};
-
 export const getLastWorkDayOfMonth = (
-  date: Date,
-  proposedOptions?: Options,
-  funcOpt?: GetLastWorkDayOfMonthDOpt
+  year: number,
+  month: number,
+  options?: Options
 ) => {
-  const proposed =
-    funcOpt && funcOpt.recursive
-      ? date
-      : new Date(Date.UTC(date.getFullYear(), date.getMonth() + 1, 0));
+  let date = new Date(Date.UTC(year, month, 0));
 
-  const options = {
-    ...defaultOptions,
-    ...proposedOptions,
-    withLastWorkDayOfMonth: false
-  };
-
-  if (isVacancy(date, options)) {
-    return getLastWorkDayOfMonth(minusDay(date), options, { recursive: true });
+  while (isVacancy(date, { ...options, withLastWorkDayOfMonth: false })) {
+    date = minusDay(date);
   }
 
-  return funcOpt && funcOpt.outputFormat === "date"
-    ? proposed
-    : proposed.toISOString().split("T")[0];
+  return date.toISOString().split("T")[0];
 };
 
 export const isVacancy = (date: Date, proposedOptions?: Options): Boolean => {
@@ -70,14 +54,11 @@ export const isVacancy = (date: Date, proposedOptions?: Options): Boolean => {
     return true;
   }
 
-  if (
-    withLastWorkDayOfMonth &&
-    date.getTime() ===
-      getLastWorkDayOfMonth(date, proposedOptions, {
-        outputFormat: "date"
-      }).getTime()
-  ) {
-    return true;
+  if (withLastWorkDayOfMonth) {
+    const last = getLastWorkDayOfMonth(date.getFullYear(), date.getMonth() + 1);
+    if (date.toISOString().split("T")[0] === last) {
+      return true;
+    }
   }
 
   return false;

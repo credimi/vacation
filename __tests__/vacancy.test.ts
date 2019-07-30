@@ -36,6 +36,7 @@ test("It's vacancy", () => {
   };
   expect(isVacancy(new Date("2019-07-12"), options)).toBe(true);
   expect(isVacancy(new Date("2023-07-11"), options)).toBe(false);
+  expect(isVacancy(new Date("2019-12-31"), options)).toBe(true);
 });
 
 test("Last working day", () => {
@@ -44,8 +45,11 @@ test("Last working day", () => {
   };
   expect(isVacancy(new Date("2019-07-31"), options)).toBe(true);
   expect(isVacancy(new Date("2019-07-30"), options)).toBe(false);
+  expect(isVacancy(new Date("2019-12-30"), options)).toBe(true);
+  expect(isVacancy(new Date("2019-12-27"), options)).toBe(false);
 });
 
 test("Get last working date", () => {
-  expect(getLastWorkDayOfMonth(new Date("2019-07-15"))).toBe("2019-07-31");
+  expect(getLastWorkDayOfMonth(2019, 7)).toBe("2019-07-31");
+  expect(getLastWorkDayOfMonth(2019, 12)).toBe("2019-12-30");
 });
