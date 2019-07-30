@@ -1,0 +1,28 @@
+{
+  "name": "vacation",
+  "version": "1.0.0",
+  "description": "'Credimi Vacations, Weekends and others days we don't want to do Loans or Advances'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/credimi/vacation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/credimi/vacation/issues"
+  },
+  "homepage": "https://github.com/credimi/vacation#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.16",
+    "date-holidays": "^1.4.1",
+    "fs.promises": "^0.1.2",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}
