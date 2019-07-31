@@ -123,7 +123,7 @@ const isVacation = (date: string, options?: Options): boolean => {
   return false
 }
 
-const closestWorkingDay = (date: string, options?: Options): String => {
+const closestWorkingDay = (date: string, options?: Options): string => {
   checkDateFormat(date)
   while (isVacation(date, options)) {
     date = plusDay(date)
