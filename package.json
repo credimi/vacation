@@ -1,6 +1,6 @@
 {
   "name": "@credimi/vacation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "'Credimi Vacations, Weekends and others days we don't want to do Loans or Advances'",
   "main": "dist/index.js",
   "scripts": {
