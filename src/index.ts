@@ -135,4 +135,5 @@ export {
   closestWorkingDay,
   holidays,
   vacations,
+  toDateStr
 }
