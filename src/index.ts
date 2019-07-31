@@ -88,7 +88,7 @@ const plusDay = (dateStr: string, days: number = 1) => {
 const getLastWorkDayOfMonth = (
   year: number,
   month: number,
-  options?: Omit<Options, 'withWeekends'>
+  options?: Omit<Options, 'withLastWorkDayOfMonth'>
 ) => {
   let date = toDateStr(new Date(Date.UTC(year, month, 0)))
 
@@ -120,7 +120,7 @@ const isVacation = (date: string, options?: Options): Boolean => {
   return false
 }
 
-const closestValidDay = (date: string, options?: Options): String => {
+const closestWorkingDay = (date: string, options?: Options): String => {
   checkDateFormat(date)
   while (isVacation(date, options)) {
     date = plusDay(date)
@@ -132,8 +132,7 @@ const closestValidDay = (date: string, options?: Options): String => {
 export {
   isVacation,
   getLastWorkDayOfMonth,
-  toDateStr,
-  closestValidDay,
+  closestWorkingDay,
   holidays,
   vacations,
 }

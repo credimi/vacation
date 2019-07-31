@@ -1,9 +1,4 @@
-import {
-  isVacation,
-  getLastWorkDayOfMonth,
-  closestValidDay,
-  toDateStr,
-} from '../src/'
+import { isVacation, getLastWorkDayOfMonth, closestWorkingDay } from '../src/'
 
 test('Christmas is CHRISTMAS', () => {
   const options = {
@@ -62,6 +57,6 @@ test('Get closest valid day', () => {
   const options = {
     withLastWorkDayOfMonth: true,
   }
-  expect(closestValidDay('2019-12-30', options)).toBe('2020-01-02')
-  expect(closestValidDay('2019-08-01', options)).toBe('2019-08-01')
+  expect(closestWorkingDay('2019-12-30', options)).toBe('2020-01-02')
+  expect(closestWorkingDay('2019-08-01', options)).toBe('2019-08-01')
 })
