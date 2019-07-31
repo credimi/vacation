@@ -1,6 +1,6 @@
 # 🏖Vacation 🏖
 
-## We work hard, but sometimes we just don't
+## We work hard, but sometimes we just don't 🤷‍♀
 
 `@credimi/vacancy` is a small static module that manages the days we are off or we don't process things
 
@@ -12,7 +12,7 @@ A function that accepts a date in `YYYY-MM-DD` format and respond with a Boolean
 ### `closestWorkingDay(date[, options])`
 
 A function that accepts a date in `YYYY-MM-DD` format and respond with the closest working day.
-_N.B._ if the date passed to the function is a working date, you will have your value back.
+<br />_N.B._ if the date passed to the function is a working date, you will have your value back.
 <br />Options: see options below
 
 ### `getLastWorkDayOfMonth(year, month[, options])`
