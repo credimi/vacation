@@ -10,8 +10,13 @@ for (let year = 2019; year < 2030; year++) {
     end.toISOString().split('T')[0])]
 }
 
-fsPromises.writeFile('./data/holidays.ts', `
+fsPromises.writeFile('./src/data/holidays.ts', `
 export const holidays: string[] = [${holyarray.map(holiday => `
   '${holiday}'`)}
 ]
-`)
+  `)
+  .then(() => console.log('Holidays array generated 👍'))
+  .catch(e => {
+    console.error('error', e)
+    process.exit(1);
+  })

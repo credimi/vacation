@@ -3,7 +3,7 @@ import {
   getLastWorkDayOfMonth,
   closestValidDay,
   toDateStr,
-} from '../src/vacation'
+} from '../src/'
 
 test('Christmas is CHRISTMAS', () => {
   const options = {
