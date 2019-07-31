@@ -4,7 +4,7 @@
   "description": "'Credimi Vacations, Weekends and others days we don't want to do Loans or Advances'",
   "main": "dist/vacation.js",
   "scripts": {
-    "build": "tsc -p src/vacation.ts",
+    "build": "tsc -p .",
     "test": "yarn jest"
   },
   "repository": {

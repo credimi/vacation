@@ -2,7 +2,7 @@
   "compilerOptions": {
     "lib": [
       "dom",
-      "es6"
+      "esnext"
     ],
     "skipLibCheck": true,
     "allowJs": true,
@@ -16,14 +16,13 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
-    "resolveJsonModule": true,
     "target": "es5",
     "downlevelIteration": true,
     "declaration": true,
     "rootDir": "src"
   },
   "include": [
-    "src"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"
