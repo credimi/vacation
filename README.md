@@ -42,4 +42,4 @@ You can directly access to the `holidays` and `vacations` arrays importing the m
 - `makesHolidays`: generates holidays array, the data will be saved in `.src/data/holidays.ts`
 
 if you want to adding region to holidays: check the `utils/makesHolidays.js` file
-if you want to add or remove custom vacancy days: manually edit the `./src/data/vacations.ts` file
+if you want to add or remove custom vacation days: manually edit the `./src/data/vacations.ts` file
