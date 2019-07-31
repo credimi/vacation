@@ -1,8 +1,8 @@
-# Vacation
+# 🏖Vacation 🏖
 
 ## We work hard, but sometimes we just don't
 
-@credimi/vacancy is a small static module that manages the days we are off or we don't process things
+`@credimi/vacancy` is a small static module that manages the days we are off or we don't process things
 
 ### `isVacation(date[, options])`
 
