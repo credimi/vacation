@@ -24,10 +24,10 @@ A function that accepts a `year` and a `month` parameter and returns the last wo
 
 ```ts
 {
-  withWeekends?: Boolean = true // includes weekends to the valid vacation days check
-  withVacations?: Boolean = true // includes the days from the vacations array the valid vacation days check
-  withHolidays?: Boolean = true // includes the holidays from the holidays array to the valid vacation days check
-  withLastWorkDayOfMonth?: Boolean = false // includes the last working day of the month to the check
+  withWeekends?: boolean = true // includes weekends to the valid vacation days check
+  withVacations?: boolean = true // includes the days from the vacations array the valid vacation days check
+  withHolidays?: boolean = true // includes the holidays from the holidays array to the valid vacation days check
+  withLastWorkDayOfMonth?: boolean = false // includes the last working day of the month to the check
 }
 ```
 
