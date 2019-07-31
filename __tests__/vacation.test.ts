@@ -2,6 +2,7 @@ import {
   isVacation,
   getLastWorkDayOfMonth,
   closestValidDay,
+  toDateStr,
 } from '../src/vacation'
 
 test('Christmas is CHRISTMAS', () => {
@@ -9,8 +10,8 @@ test('Christmas is CHRISTMAS', () => {
     withWeekends: false,
     withVacations: false,
   }
-  expect(isVacation(new Date('2020-12-25'), options)).toBe(true)
-  expect(isVacation(new Date('2020-12-24'), options)).toBe(false)
+  expect(isVacation('2020-12-25', options)).toBe(true)
+  expect(isVacation('2020-12-24', options)).toBe(false)
 })
 
 test("Christmas is CHRISTMAS, but not if you don't ask", () => {
@@ -19,7 +20,7 @@ test("Christmas is CHRISTMAS, but not if you don't ask", () => {
     withVacations: false,
     withHolidays: false,
   }
-  expect(isVacation(new Date('2020-12-25'), options)).toBe(false)
+  expect(isVacation('2020-12-25', options)).toBe(false)
 })
 
 test("It's weekend", () => {
@@ -27,9 +28,9 @@ test("It's weekend", () => {
     withVacations: false,
     withHolidays: false,
   }
-  expect(isVacation(new Date('2023-07-29'), options)).toBe(true)
-  expect(isVacation(new Date('2023-07-30'), options)).toBe(true)
-  expect(isVacation(new Date('2023-07-28'), options)).toBe(false)
+  expect(isVacation('2023-07-29', options)).toBe(true)
+  expect(isVacation('2023-07-30', options)).toBe(true)
+  expect(isVacation('2023-07-28', options)).toBe(false)
 })
 
 test("It's vacation", () => {
@@ -37,19 +38,19 @@ test("It's vacation", () => {
     withWeekends: false,
     withHolidays: false,
   }
-  expect(isVacation(new Date('2019-07-12'), options)).toBe(true)
-  expect(isVacation(new Date('2023-07-11'), options)).toBe(false)
-  expect(isVacation(new Date('2019-12-31'), options)).toBe(true)
+  expect(isVacation('2019-07-12', options)).toBe(true)
+  expect(isVacation('2023-07-11', options)).toBe(false)
+  expect(isVacation('2019-12-31', options)).toBe(true)
 })
 
 test('Last working day', () => {
   const options = {
     withLastWorkDayOfMonth: true,
   }
-  expect(isVacation(new Date('2019-07-31'), options)).toBe(true)
-  expect(isVacation(new Date('2019-07-30'), options)).toBe(false)
-  expect(isVacation(new Date('2019-12-30'), options)).toBe(true)
-  expect(isVacation(new Date('2019-12-27'), options)).toBe(false)
+  expect(isVacation('2019-07-31', options)).toBe(true)
+  expect(isVacation('2019-07-30', options)).toBe(false)
+  expect(isVacation('2019-12-30', options)).toBe(true)
+  expect(isVacation('2019-12-27', options)).toBe(false)
 })
 
 test('Get last working date', () => {
@@ -61,6 +62,6 @@ test('Get closest valid day', () => {
   const options = {
     withLastWorkDayOfMonth: true,
   }
-  expect(closestValidDay(new Date('2019-12-30'), options)).toBe('2020-01-02')
-  expect(closestValidDay(new Date('2019-08-01'), options)).toBe('2019-08-01')
+  expect(closestValidDay('2019-12-30', options)).toBe('2020-01-02')
+  expect(closestValidDay('2019-08-01', options)).toBe('2019-08-01')
 })
