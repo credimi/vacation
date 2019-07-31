@@ -7,18 +7,18 @@
 ### `isVacation(date[, options])`
 
 A function that accepts a date in `YYYY-MM-DD` format and respond with a Boolean
-Options: see options below
+<br />Options: see options below
 
 ### `closestWorkingDay(date[, options])`
 
 A function that accepts a date in `YYYY-MM-DD` format and respond with the closest working day.
 _N.B._ if the date passed to the function is a working date, you will have your value back.
-Options: see options below
+<br />Options: see options below
 
 ### `getLastWorkDayOfMonth(year, month[, options])`
 
 A function that accepts a `year` and a `month` parameter and returns the last working date of the month in `YYYY-MM-DD` format
-Options: see options below
+<br />Options: see options below
 
 ### `Options`
 
