@@ -34,8 +34,9 @@ const toDateStr = (date: Date | string) => {
   if (typeof date === 'string') {
     return checkDateFormat(date)
   } else {
-    const timeZoneOffset = new Date().getTimezoneOffset()
-    const tzDate = new Date(new Date(date).setMinutes(timeZoneOffset * -1))
+    const tzDate = new Date(
+      Date.UTC(date.getFullYear(), date.getMonth(), date.getUTCDate())
+    )
     return checkDateFormat(tzDate.toISOString().split('T')[0])
   }
 }
