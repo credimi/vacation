@@ -5,7 +5,7 @@ esutils
 .gitignore
 .eslintrc
 .prettierrc
-.nodeversion
+.node-version
 jest.config.js
 yarn.lock
 tsconfig.json
