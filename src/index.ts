@@ -35,7 +35,7 @@ const toDateStr = (date: Date | string) => {
     return checkDateFormat(date)
   } else {
     const tzDate = new Date(
-      Date.UTC(date.getFullYear(), date.getMonth(), date.getUTCDate())
+      Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
     )
     return checkDateFormat(tzDate.toISOString().split('T')[0])
   }
