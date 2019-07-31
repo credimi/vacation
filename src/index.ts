@@ -34,7 +34,9 @@ const toDateStr = (date: Date | string) => {
   if (typeof date === 'string') {
     return checkDateFormat(date)
   } else {
-    return checkDateFormat(date.toISOString().split('T')[0])
+    const timeZoneOffset = new Date().getTimezoneOffset()
+    const tzDate = new Date(new Date(date).setMinutes(timeZoneOffset * -1))
+    return checkDateFormat(tzDate.toISOString().split('T')[0])
   }
 }
 
@@ -135,5 +137,5 @@ export {
   closestWorkingDay,
   holidays,
   vacations,
-  toDateStr
+  toDateStr,
 }

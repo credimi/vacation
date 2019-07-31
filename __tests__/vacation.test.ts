@@ -1,4 +1,9 @@
-import { isVacation, getLastWorkDayOfMonth, closestWorkingDay } from '../src/'
+import {
+  isVacation,
+  getLastWorkDayOfMonth,
+  closestWorkingDay,
+  toDateStr,
+} from '../src/'
 
 test('Christmas is CHRISTMAS', () => {
   const options = {
@@ -26,6 +31,8 @@ test("It's weekend", () => {
   expect(isVacation('2023-07-29', options)).toBe(true)
   expect(isVacation('2023-07-30', options)).toBe(true)
   expect(isVacation('2023-07-28', options)).toBe(false)
+  expect(isVacation('2019-08-03', options)).toBe(true)
+  expect(isVacation('2019-08-05', options)).toBe(false)
 })
 
 test("It's vacation", () => {
