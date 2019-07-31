@@ -1,5 +1,5 @@
-import { holidays } from '../data/holidays'
-import { vacations } from '../data/vacations'
+import { holidays } from './data/holidays'
+import { vacations } from './data/vacations'
 
 type Options = {
   withVacations?: Boolean

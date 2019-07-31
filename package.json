@@ -2,9 +2,10 @@
   "name": "@credimi/vacation",
   "version": "1.0.0",
   "description": "'Credimi Vacations, Weekends and others days we don't want to do Loans or Advances'",
-  "main": "index.js",
+  "main": "dist/vacation.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p src/vacation.ts",
+    "test": "yarn jest"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,6 @@
     "@types/jest": "^24.0.16",
     "@typescript-eslint/eslint-plugin": "^1.4.2",
     "@typescript-eslint/parser": "^1.4.2",
-    "babel-jest": "^24.8.0",
     "date-holidays": "^1.4.1",
     "eslint-config-prettier": "^3.0.1",
     "eslint-config-standard": "12.0.0",
@@ -35,5 +35,6 @@
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
-  }
+  },
+  "typings": "dist/index.d.ts"
 }
