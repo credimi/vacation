@@ -1,5 +1,5 @@
 {
-  "name": "vacation",
+  "name": "@credimi/vacation",
   "version": "1.0.0",
   "description": "'Credimi Vacations, Weekends and others days we don't want to do Loans or Advances'",
   "main": "index.js",

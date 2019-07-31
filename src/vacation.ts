@@ -1,24 +1,23 @@
 import { holidays } from '../data/holidays'
 import { vacations } from '../data/vacations'
 
-export { holidays, vacations }
-
 type Options = {
-  withVacancy?: Boolean
+  withVacations?: Boolean
   withHolidays?: Boolean
   withLastWorkDayOfMonth?: Boolean
   withWeekends?: Boolean
 }
 
 const defaultOptions: Options = {
-  withVacancy: true,
+  withVacations: true,
   withHolidays: true,
   withLastWorkDayOfMonth: false,
   withWeekends: true,
 }
 
+// mispelled on purpose
 const isVacancy = (date: Date, proposedOptions?: Options): Boolean => {
-  const { withWeekends, withVacancy, withHolidays } = {
+  const { withWeekends, withVacations, withHolidays } = {
     ...defaultOptions,
     ...proposedOptions,
   }
@@ -29,7 +28,7 @@ const isVacancy = (date: Date, proposedOptions?: Options): Boolean => {
 
   const dateString = date.toISOString().split('T')[0]
 
-  if (withVacancy && vacations.includes(dateString)) {
+  if (withVacations && vacations.includes(dateString)) {
     return true
   }
 
@@ -43,7 +42,10 @@ const isVacancy = (date: Date, proposedOptions?: Options): Boolean => {
 const minusDay = (date: Date, days: number = 1) =>
   new Date(new Date(date).setDate(date.getDate() - days))
 
-export const getLastWorkDayOfMonth = (
+const plusDay = (date: Date, days: number = 1) =>
+  new Date(new Date(date).setDate(date.getDate() + days))
+
+const getLastWorkDayOfMonth = (
   year: number,
   month: number,
   options?: Omit<Options, 'withWeekends'>
@@ -57,7 +59,7 @@ export const getLastWorkDayOfMonth = (
   return date.toISOString().split('T')[0]
 }
 
-export const isVacation = (date: Date, options?: Options): Boolean => {
+const isVacation = (date: Date, options?: Options): Boolean => {
   if (isVacancy(date, options)) {
     return true
   }
@@ -74,4 +76,20 @@ export const isVacation = (date: Date, options?: Options): Boolean => {
   }
 
   return false
+}
+
+const closestValidDay = (date: Date, options?: Options): String => {
+  while (isVacation(date, options)) {
+    date = plusDay(date)
+  }
+
+  return date.toISOString().split('T')[0]
+}
+
+export {
+  isVacation,
+  getLastWorkDayOfMonth,
+  closestValidDay,
+  holidays,
+  vacations,
 }
