@@ -2,10 +2,10 @@ import { holidays } from './data/holidays'
 import { vacations } from './data/vacations'
 
 type Options = {
-  withVacations?: Boolean
-  withHolidays?: Boolean
-  withLastWorkDayOfMonth?: Boolean
-  withWeekends?: Boolean
+  withVacations?: boolean
+  withHolidays?: boolean
+  withLastWorkDayOfMonth?: boolean
+  withWeekends?: boolean
 }
 
 const defaultOptions: Options = {
@@ -51,7 +51,7 @@ const toDate = (date: string) => {
 }
 
 // mispelled on purpose
-const isVacancy = (date: string, proposedOptions?: Options): Boolean => {
+const isVacancy = (date: string, proposedOptions?: Options): boolean => {
   checkDateFormat(date)
   const { withWeekends, withVacations, withHolidays } = {
     ...defaultOptions,
@@ -102,7 +102,7 @@ const getLastWorkDayOfMonth = (
   return date
 }
 
-const isVacation = (date: string, options?: Options): Boolean => {
+const isVacation = (date: string, options?: Options): boolean => {
   checkDateFormat(date)
   if (isVacancy(date, options)) {
     return true
