@@ -1,6 +1,6 @@
 {
   "name": "@credimi/vacation",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "'Credimi Vacations, Weekends and others days we don't want to do Loans or Advances'",
   "main": "dist/index.js",
   "scripts": {
@@ -14,6 +14,9 @@
   },
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://instapartners.jfrog.io/instapartners/api/npm/credimi-npm/"
+  },
   "bugs": {
     "url": "https://github.com/credimi/vacation/issues"
   },
