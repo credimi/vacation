@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "publishConfig": {
-    "registry": "https://instapartners.jfrog.io/artifactory/api/npm/credimi-npm-private/"
+    "registry": "https://credimi.jfrog.io/artifactory/api/npm/credimi-npm-private/"
   },
   "bugs": {
     "url": "https://github.com/credimi/vacation/issues"
