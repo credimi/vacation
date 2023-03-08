@@ -1,5 +1,4 @@
 node_modules/
-dist/
 data/holidays.json
 tmp/
 lib/
