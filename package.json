@@ -1,7 +1,7 @@
 {
-  "name": "@credimi/vacation",
-  "version": "1.2.6",
-  "description": "'Credimi Vacations, Weekends and others days we don't want to do Loans or Advances'",
+  "name": "@bancacfplus/vacation",
+  "version": "1.2.7",
+  "description": "'Bancacfplus Vacations, Weekends and others days we don't want to do Loans or Advances'",
   "main": "dist/index.js",
   "scripts": {
     "build": "yarn makesHolidays && yarn jest && tsc -p .",
@@ -15,18 +15,17 @@
   "author": "",
   "license": "ISC",
   "publishConfig": {
-    "registry": "https://credimi.jfrog.io/artifactory/api/npm/credimi-npm/"
+    "registry": "https://artifactory.bancacfplus.it/artifactory/api/bancacf-npm/"
   },
   "bugs": {
     "url": "https://github.com/credimi/vacation/issues"
   },
   "homepage": "https://github.com/credimi/vacation#readme",
   "typings": "dist/index.d.ts",
-  "dependencies": {
+  "devDependencies": {
     "@types/jest": "^24.0.16",
     "@typescript-eslint/eslint-plugin": "^1.4.2",
     "@typescript-eslint/parser": "^1.4.2",
-    "date-holidays": "^1.4.1",
     "eslint-config-prettier": "^3.0.1",
     "eslint-config-standard": "12.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -34,9 +33,12 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "date-holidays": "^1.4.1",
     "fs.promises": "^0.1.2",
     "jest": "^24.8.0",
-    "prettier": "^1.18.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
     "typescript": "^4.9.5"
