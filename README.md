@@ -2,7 +2,7 @@
 
 ## We work hard, but sometimes we just don't 🤷‍♀
 
-`@credimi/vacation` is a small static module that manages the days we are off or we don't process things
+`@bancacfplus/vacation` is a small static module that manages the days we are off or we don't process things
 
 ### `isVacation(date[, options])`
 
